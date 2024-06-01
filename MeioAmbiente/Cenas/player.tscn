@@ -1,0 +1,159 @@
+[gd_scene load_steps=21 format=3 uid="uid://8ej74qwjpygy"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2uw17"]
+[ext_resource type="Texture2D" uid="uid://7w3wvhinfoxx" path="res://assets/Sprite Pack 7/2 - Holly/Idle (32 x 32).png" id="2_nm6qh"]
+[ext_resource type="Texture2D" uid="uid://fn7qin7eho51" path="res://assets/Sprite Pack 7/2 - Holly/Running (32 x 32).png" id="3_d2q08"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnss4"]
+size = Vector2(14, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khlts"]
+atlas = ExtResource("2_nm6qh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu77l"]
+atlas = ExtResource("2_nm6qh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a07e"]
+atlas = ExtResource("2_nm6qh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuo4u"]
+atlas = ExtResource("2_nm6qh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bac17"]
+atlas = ExtResource("2_nm6qh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gagkk"]
+atlas = ExtResource("2_nm6qh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7gt1"]
+atlas = ExtResource("2_nm6qh")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvxfd"]
+atlas = ExtResource("2_nm6qh")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18bbw"]
+atlas = ExtResource("2_nm6qh")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j10in"]
+atlas = ExtResource("3_d2q08")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62pcy"]
+atlas = ExtResource("3_d2q08")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs4ss"]
+atlas = ExtResource("3_d2q08")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbts0"]
+atlas = ExtResource("3_d2q08")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqgoi"]
+atlas = ExtResource("3_d2q08")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77851"]
+atlas = ExtResource("3_d2q08")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7tix"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khlts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu77l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a07e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuo4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bac17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gagkk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7gt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvxfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18bbw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j10in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62pcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs4ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbts0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqgoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77851")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_2uw17")
+
+[node name="CollisionPlay" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_cnss4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+limit_right = 2050
+limit_bottom = 2047
+editor_draw_limits = true
+
+[node name="AnimaHolly" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v7tix")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.255892
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="ItemCountLabel" type="Label" parent="UI"]
+offset_left = -97.0
+offset_top = -40.0
+offset_right = -57.0
+offset_bottom = -17.0
+scale = Vector2(1, 0.637569)

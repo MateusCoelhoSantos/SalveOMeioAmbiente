@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://duji884llcv4r"]
+
+[ext_resource type="Script" path="res://Scripts/Area2D.gd" id="1_rxthc"]
+[ext_resource type="Texture2D" uid="uid://gys8087y7t1v" path="res://Lixeiros/lixos2png.png" id="2_pswej"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k2tyo"]
+radius = 68.9365
+height = 237.594
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.143101, 0.145061)
+collision_layer = 2
+script = ExtResource("1_rxthc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.14441e-05, 0)
+scale = Vector2(2.15173, 1.74672)
+texture = ExtResource("2_pswej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.8147e-06, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_k2tyo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

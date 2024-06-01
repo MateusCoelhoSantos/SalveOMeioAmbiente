@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://by8245nmqfm16"]
+
+[ext_resource type="Theme" uid="uid://665c8xr3ikdj" path="res://temabotao.tres" id="1_4apjl"]
+[ext_resource type="Script" path="res://Scripts/creditos.gd" id="1_4lu4s"]
+[ext_resource type="Script" path="res://Scripts/transicao.gd" id="3_bqpw8"]
+[ext_resource type="Shader" path="res://Shaders/transicao.gdshader" id="4_5762s"]
+[ext_resource type="Script" path="res://Scripts/color_rect.gd" id="5_obi20"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_evhcx"]
+shader = ExtResource("4_5762s")
+shader_parameter/lines = 10.0
+shader_parameter/threshold = 0.0
+shader_parameter/line_color_a = Color(6.73831e-07, 0.974087, 0.46004, 1)
+shader_parameter/line_color_b = Color(0.719593, 0.895324, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4lu4s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(19.9646, 14.9456)
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 0.300532
+offset_top = 0.267638
+offset_right = 634.301
+offset_bottom = 127.268
+scale = Vector2(0.0625561, 0.150676)
+text = "Jogo Desenvolvido por:
+Mateus Coelho Santos
+Estudante da São Lucas Ji-Paraná Afya
+
+Projeto realizado para a aula de Projeto de Extenção pela professora Karla Correa."
+horizontal_alignment = 1
+
+[node name="start_btn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 335.0
+offset_top = 366.0
+offset_right = 385.0
+offset_bottom = 391.0
+scale = Vector2(2.85768, 2.52898)
+theme = ExtResource("1_4apjl")
+text = "Voltar"
+
+[node name="transicao" type="CanvasLayer" parent="."]
+script = ExtResource("3_bqpw8")
+
+[node name="color_rect" type="ColorRect" parent="transicao"]
+material = SubResource("ShaderMaterial_evhcx")
+offset_top = 1.0
+offset_right = 799.0
+offset_bottom = 600.0
+script = ExtResource("5_obi20")
+
+[connection signal="pressed" from="start_btn" to="." method="_on_start_btn_pressed"]
