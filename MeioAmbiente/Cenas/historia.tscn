@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://ynhxo5tgewdm"]
+
+[ext_resource type="Script" path="res://Scripts/historia.gd" id="1_7iqrc"]
+[ext_resource type="Theme" uid="uid://665c8xr3ikdj" path="res://temabotao.tres" id="1_tphvh"]
+[ext_resource type="Script" path="res://Scripts/transicao.gd" id="2_4tpex"]
+[ext_resource type="Shader" path="res://Shaders/transicao.gdshader" id="3_18hcn"]
+[ext_resource type="Script" path="res://Scripts/color_rect.gd" id="4_r3h7j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fyjb"]
+font_size = 15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_upvtx"]
+shader = ExtResource("3_18hcn")
+shader_parameter/lines = 10.0
+shader_parameter/threshold = 0.0
+shader_parameter/line_color_a = Color(6.73831e-07, 0.974087, 0.46004, 1)
+shader_parameter/line_color_b = Color(0.719593, 0.895324, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7iqrc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(19.9646, 14.9456)
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 0.300532
+offset_top = 0.267638
+offset_right = 634.301
+offset_bottom = 127.268
+scale = Vector2(0.0594807, 0.188007)
+text = "Holly era uma garotinha cheia de energia e amor pela natureza. 
+Quando se mudou para a pequena cidade de Verde Vale, ela ficou triste ao ver que as ruas e 
+parques estavam cheios de lixo, e os rios, antes cristalinos, agora carregavam garrafas
+ plásticas e sacolas. Ela sabia que algo precisava ser feito.
+Dedicada a fazer a diferença, Holly começou sua missão de limpeza."
+label_settings = SubResource("LabelSettings_2fyjb")
+
+[node name="continar_btn" type="Button" parent="."]
+offset_left = 614.0
+offset_top = 516.0
+offset_right = 711.0
+offset_bottom = 541.0
+scale = Vector2(1.60023, 1.95016)
+theme = ExtResource("1_tphvh")
+text = "CONTINUAR"
+
+[node name="transicao" type="CanvasLayer" parent="."]
+script = ExtResource("2_4tpex")
+
+[node name="color_rect" type="ColorRect" parent="transicao"]
+material = SubResource("ShaderMaterial_upvtx")
+offset_top = 1.0
+offset_right = 799.0
+offset_bottom = 600.0
+script = ExtResource("4_r3h7j")
+
+[connection signal="pressed" from="continar_btn" to="." method="_on_continar_btn_pressed"]

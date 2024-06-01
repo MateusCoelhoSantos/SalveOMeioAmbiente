@@ -96,7 +96,7 @@ _data = {
 "reveal": SubResource("Animation_ujh3t")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdjm2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ohpn8"]
 shader = ExtResource("6_1i7bx")
 shader_parameter/lines = 10.0
 shader_parameter/threshold = 0.0
@@ -113,7 +113,7 @@ grow_vertical = 2
 scale = Vector2(0.696402, 0.567649)
 size_flags_horizontal = 4
 script = ExtResource("1_j2g0h")
-next_scene = "res://Cenas/fase_1.tscn"
+next_scene = "res://Cenas/historia.tscn"
 
 [node name="fundo" type="TextureRect" parent="."]
 layout_mode = 2
@@ -135,7 +135,7 @@ anchor_right = 1.25968
 anchor_bottom = 0.438108
 offset_left = 1.43595
 offset_top = 153.264
-offset_right = 6454.32
+offset_right = 7456.32
 offset_bottom = 531.264
 grow_horizontal = 2
 grow_vertical = 2
@@ -196,7 +196,7 @@ autoplay = "reveal"
 script = ExtResource("6_5edve")
 
 [node name="color_rect" type="ColorRect" parent="transicao"]
-material = SubResource("ShaderMaterial_gdjm2")
+material = SubResource("ShaderMaterial_ohpn8")
 offset_top = 1.0
 offset_right = 799.0
 offset_bottom = 600.0

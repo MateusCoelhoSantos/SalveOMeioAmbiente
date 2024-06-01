@@ -478,6 +478,7 @@ position = Vector2(1409, 301)
 position = Vector2(1061, 123)
 
 [node name="transicao" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("10_n71g6")
 
 [node name="color_rect" type="ColorRect" parent="transicao"]

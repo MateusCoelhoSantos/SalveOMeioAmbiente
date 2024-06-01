@@ -18,3 +18,7 @@ func show_new_scene():
 	show_transition.tween_property(color_rect, "threshold", 0.0, 0.5).from(1.0)
 	await show_transition.finished
 	color_rect.visible = false
+
+
+func _on_continar_btn_pressed():
+	pass # Replace with function body.
