@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://gambhcg8u34b"]
+[gd_scene load_steps=17 format=3 uid="uid://gambhcg8u34b"]
 
 [ext_resource type="Script" path="res://Scripts/fase_1.gd" id="1_pjfar"]
 [ext_resource type="Texture2D" uid="uid://cby5fnfglh21n" path="res://assets/_082395d5-07ad-44cb-8925-9053fe6ec8fb-transformed.jpeg" id="1_rb3ap"]
@@ -12,6 +12,9 @@
 [ext_resource type="Script" path="res://Scripts/transicao.gd" id="10_n71g6"]
 [ext_resource type="Shader" path="res://Shaders/transicao.gdshader" id="11_ckg1n"]
 [ext_resource type="Script" path="res://Scripts/color_rect.gd" id="12_m68jr"]
+[ext_resource type="Texture2D" uid="uid://dm4mep6ol5p7t" path="res://Lixeiros/lixeiraazul.png" id="13_1ivmb"]
+[ext_resource type="Script" path="res://Scripts/gerenciadorHUD.gd" id="13_xovb6"]
+[ext_resource type="FontFile" uid="uid://dbhk66eyst1bt" path="res://assets/Fontes/RevMiniPixel.ttf" id="14_xomkb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qup37"]
 shader = ExtResource("11_ckg1n")
@@ -488,4 +491,70 @@ offset_right = 799.0
 offset_bottom = 600.0
 script = ExtResource("12_m68jr")
 
-[connection signal="item_collected" from="collectibles/Area2D3" to="Player/Jogador" method="_on_area_2d_3_item_collected"]
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("13_xovb6")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.990982, 0.730876)
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="iconlixo" type="TextureRect" parent="HUD/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("13_1ivmb")
+
+[node name="lixocontador" type="Label" parent="HUD/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("14_xomkb")
+theme_override_font_sizes/font_size = 32
+text = "0000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="tempo" type="Label" parent="HUD/Control/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("14_xomkb")
+theme_override_font_sizes/font_size = 32
+text = "TEMPO:"
+
+[node name="tempocontador" type="Label" parent="HUD/Control/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("14_xomkb")
+theme_override_font_sizes/font_size = 32
+text = "00:00"

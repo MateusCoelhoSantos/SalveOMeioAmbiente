@@ -148,12 +148,3 @@ autoplay = "idle"
 frame_progress = 0.255892
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="UI" type="Node2D" parent="."]
-
-[node name="ItemCountLabel" type="Label" parent="UI"]
-offset_left = -97.0
-offset_top = -40.0
-offset_right = -57.0
-offset_bottom = -17.0
-scale = Vector2(1, 0.637569)

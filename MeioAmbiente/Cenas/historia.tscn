@@ -3,11 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/historia.gd" id="1_7iqrc"]
 [ext_resource type="Theme" uid="uid://665c8xr3ikdj" path="res://temabotao.tres" id="1_tphvh"]
 [ext_resource type="Script" path="res://Scripts/transicao.gd" id="2_4tpex"]
+[ext_resource type="FontFile" uid="uid://dbhk66eyst1bt" path="res://assets/Fontes/RevMiniPixel.ttf" id="2_qt5ok"]
 [ext_resource type="Shader" path="res://Shaders/transicao.gdshader" id="3_18hcn"]
 [ext_resource type="Script" path="res://Scripts/color_rect.gd" id="4_r3h7j"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_2fyjb"]
-font_size = 15
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_upvtx"]
 shader = ExtResource("3_18hcn")
@@ -26,26 +24,39 @@ grow_vertical = 2
 script = ExtResource("1_7iqrc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(19.9646, 14.9456)
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 0.300532
-offset_top = 0.267638
-offset_right = 634.301
-offset_bottom = 127.268
-scale = Vector2(0.0594807, 0.188007)
-text = "Holly era uma garotinha cheia de energia e amor pela natureza. 
-Quando se mudou para a pequena cidade de Verde Vale, ela ficou triste ao ver que as ruas e 
-parques estavam cheios de lixo, e os rios, antes cristalinos, agora carregavam garrafas
- plásticas e sacolas. Ela sabia que algo precisava ser feito.
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+offset_right = 560.0
+offset_bottom = 157.0
+scale = Vector2(0.0713464, 0.211679)
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_qt5ok")
+theme_override_font_sizes/font_size = 16
+text = "Holly era uma garotinha cheia de energia
+e amor pela natureza. 
+Quando se mudou para a pequena cidade de Verde Vale, 
+ela ficou triste ao ver que as ruas e 
+parques estavam cheios de lixo, e os rios, antes 
+cristalinos, agora carregavam garrafas
+plásticas e sacolas. Ela sabia que algo precisava ser feito.
 Dedicada a fazer a diferença, Holly começou sua missão de limpeza."
-label_settings = SubResource("LabelSettings_2fyjb")
 
 [node name="continar_btn" type="Button" parent="."]
+layout_mode = 0
 offset_left = 614.0
 offset_top = 516.0
 offset_right = 711.0
