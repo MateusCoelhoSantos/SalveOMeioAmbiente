@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://by8245nmqfm16"]
+[gd_scene load_steps=9 format=3 uid="uid://by8245nmqfm16"]
 
 [ext_resource type="Theme" uid="uid://665c8xr3ikdj" path="res://temabotao.tres" id="1_4apjl"]
 [ext_resource type="Script" path="res://Scripts/creditos.gd" id="1_4lu4s"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/transicao.gd" id="3_bqpw8"]
 [ext_resource type="Shader" path="res://Shaders/transicao.gdshader" id="4_5762s"]
 [ext_resource type="Script" path="res://Scripts/color_rect.gd" id="5_obi20"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hu7k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_evhcx"]
 shader = ExtResource("4_5762s")
@@ -24,23 +26,30 @@ grow_vertical = 2
 script = ExtResource("1_4lu4s")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(19.9646, 14.9456)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00262, 1.0029)
 color = Color(0, 0, 0, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
-offset_right = 714.0
-offset_bottom = 100.0
-scale = Vector2(0.0559292, 0.207726)
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.0
+offset_top = -109.0
+offset_right = 353.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -54,13 +63,14 @@ Estudante da São Lucas Ji-Paraná Afya
 Projeto realizado para a aula de Projeto de Extenção pela professora Karla Correa."
 horizontal_alignment = 1
 
-[node name="voltar_btn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 323.0
-offset_top = 462.0
-offset_right = 373.0
-offset_bottom = 487.0
-scale = Vector2(2.85768, 2.52898)
+[node name="HSeparator" type="HSeparator" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1hu7k")
+
+[node name="voltar_btn" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("1_4apjl")
 text = "Voltar"
 
@@ -74,4 +84,4 @@ offset_right = 799.0
 offset_bottom = 600.0
 script = ExtResource("5_obi20")
 
-[connection signal="pressed" from="voltar_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/voltar_btn" to="." method="_on_start_btn_pressed"]

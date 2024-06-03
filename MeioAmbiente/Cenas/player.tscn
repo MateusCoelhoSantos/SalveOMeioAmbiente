@@ -146,5 +146,3 @@ sprite_frames = SubResource("SpriteFrames_v7tix")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.255892
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,0 +1,159 @@
+[gd_scene load_steps=12 format=3 uid="uid://bv3hw5cmmch1c"]
+
+[ext_resource type="Script" path="res://Scripts/fimdejogo.gd" id="1_iv14w"]
+[ext_resource type="FontFile" uid="uid://dbhk66eyst1bt" path="res://assets/Fontes/RevMiniPixel.ttf" id="1_ks3xa"]
+[ext_resource type="Theme" uid="uid://665c8xr3ikdj" path="res://temabotao.tres" id="2_wkjqm"]
+[ext_resource type="Script" path="res://Scripts/transicao.gd" id="3_sxwan"]
+[ext_resource type="Shader" path="res://Shaders/transicao.gdshader" id="4_7go48"]
+[ext_resource type="Script" path="res://Scripts/color_rect.gd" id="5_bh8fr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yodld"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rh38c"]
+shader = ExtResource("4_7go48")
+shader_parameter/lines = 10.0
+shader_parameter/threshold = 0.0
+shader_parameter/line_color_a = Color(6.73831e-07, 0.974087, 0.46004, 1)
+shader_parameter/line_color_b = Color(0.719593, 0.895324, 0, 1)
+
+[sub_resource type="Animation" id="Animation_n7o5p"]
+resource_name = "fim de jogo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g3vl0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_blt8h"]
+_data = {
+"RESET": SubResource("Animation_g3vl0"),
+"fim de jogo": SubResource("Animation_n7o5p")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_iv14w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.999677, 0.999415)
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -39.5
+offset_right = 68.0
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_ks3xa")
+theme_override_font_sizes/font_size = 16
+text = "Tempo Esgotado
+Fim de Jogo!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yodld")
+
+[node name="recomecar_btn" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wkjqm")
+text = "RECOMEAÇR"
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yodld")
+
+[node name="sair_btn" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wkjqm")
+text = "SAIR DO JOGO"
+
+[node name="transicao" type="CanvasLayer" parent="."]
+script = ExtResource("3_sxwan")
+
+[node name="color_rect" type="ColorRect" parent="transicao"]
+material = SubResource("ShaderMaterial_rh38c")
+offset_top = 1.0
+offset_right = 799.0
+offset_bottom = 600.0
+script = ExtResource("5_bh8fr")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_blt8h")
+}
+autoplay = "fim de jogo"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/recomecar_btn" to="." method="_on_recomecar_btn_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/sair_btn" to="." method="_on_sair_btn_pressed"]

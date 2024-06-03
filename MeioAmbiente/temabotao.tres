@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://665c8xr3ikdj"]
 
-[sub_resource type="SystemFont" id="SystemFont_wpl6n"]
+[ext_resource type="FontFile" uid="uid://dbhk66eyst1bt" path="res://assets/Fontes/RevMiniPixel.ttf" id="1_ugwed"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m634c"]
 bg_color = Color(0, 0.709804, 0.380392, 1)
@@ -9,6 +9,14 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.717647, 0.235294, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 15.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wuj76"]
 bg_color = Color(0.717647, 0.235294, 0, 1)
@@ -17,6 +25,14 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0.709804, 0.380392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 15.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4mwq"]
 bg_color = Color(0, 0.709804, 0.380392, 1)
@@ -25,6 +41,14 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.717647, 0.235294, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 15.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_224tc"]
 bg_color = Color(0.717647, 0.235294, 0, 1)
@@ -33,10 +57,18 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0.709804, 0.380392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 15.0
+expand_margin_bottom = 5.0
 
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
-Button/fonts/font = SubResource("SystemFont_wpl6n")
+Button/fonts/font = ExtResource("1_ugwed")
 Button/styles/focus = SubResource("StyleBoxFlat_m634c")
 Button/styles/hover = SubResource("StyleBoxFlat_wuj76")
 Button/styles/normal = SubResource("StyleBoxFlat_n4mwq")
