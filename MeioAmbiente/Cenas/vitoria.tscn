@@ -1,16 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv3hw5cmmch1c"]
+[gd_scene load_steps=12 format=3 uid="uid://cs2w4wfvgbu2l"]
 
-[ext_resource type="Script" path="res://Scripts/fimdejogo.gd" id="1_iv14w"]
-[ext_resource type="FontFile" uid="uid://dbhk66eyst1bt" path="res://assets/Fontes/RevMiniPixel.ttf" id="1_ks3xa"]
-[ext_resource type="Theme" uid="uid://665c8xr3ikdj" path="res://temabotao.tres" id="2_wkjqm"]
-[ext_resource type="Script" path="res://Scripts/transicao.gd" id="3_sxwan"]
-[ext_resource type="Shader" path="res://Shaders/transicao.gdshader" id="4_7go48"]
-[ext_resource type="Script" path="res://Scripts/color_rect.gd" id="5_bh8fr"]
+[ext_resource type="FontFile" uid="uid://dbhk66eyst1bt" path="res://assets/Fontes/RevMiniPixel.ttf" id="1_jtb8b"]
+[ext_resource type="Script" path="res://Scripts/vitoria.gd" id="1_jths6"]
+[ext_resource type="Theme" uid="uid://665c8xr3ikdj" path="res://temabotao.tres" id="2_o33vd"]
+[ext_resource type="Script" path="res://Scripts/transicao.gd" id="3_o8gq0"]
+[ext_resource type="Shader" path="res://Shaders/transicao.gdshader" id="4_vu6fs"]
+[ext_resource type="Script" path="res://Scripts/color_rect.gd" id="5_kcj4g"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yodld"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nfjdj"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rh38c"]
-shader = ExtResource("4_7go48")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w21jj"]
+shader = ExtResource("4_vu6fs")
 shader_parameter/lines = 10.0
 shader_parameter/threshold = 0.0
 shader_parameter/line_color_a = Color(6.73831e-07, 0.974087, 0.46004, 1)
@@ -83,9 +83,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-script = ExtResource("1_iv14w")
+script = ExtResource("1_jths6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -114,40 +112,41 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("1_ks3xa")
+theme_override_fonts/font = ExtResource("1_jtb8b")
 theme_override_font_sizes/font_size = 32
-text = "Tempo Esgotado
-Fim de Jogo!"
+text = "Parabéns você conseguiu coletar todos os
+lixos da cidade antes do tempo acabar!
+VITORIA!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HSeparator2" type="HSeparator" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_yodld")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nfjdj")
 
 [node name="recomecar_btn" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_wkjqm")
+theme = ExtResource("2_o33vd")
 text = "RECOMEAÇR"
 
 [node name="HSeparator" type="HSeparator" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_yodld")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nfjdj")
 
 [node name="sair_btn" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_wkjqm")
+theme = ExtResource("2_o33vd")
 text = "SAIR DO JOGO"
 
 [node name="transicao" type="CanvasLayer" parent="."]
-script = ExtResource("3_sxwan")
+script = ExtResource("3_o8gq0")
 
 [node name="color_rect" type="ColorRect" parent="transicao"]
-material = SubResource("ShaderMaterial_rh38c")
+material = SubResource("ShaderMaterial_w21jj")
 offset_top = 1.0
 offset_right = 799.0
 offset_bottom = 600.0
-script = ExtResource("5_bh8fr")
+script = ExtResource("5_kcj4g")
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {

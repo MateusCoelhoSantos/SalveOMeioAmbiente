@@ -22,7 +22,6 @@ func _physics_process(delta):
 func _process(delta):
 	if Input.is_action_pressed("right"):
 		animation.flip_h = false
-
+		
 	if Input.is_action_pressed("left"):
 		animation.flip_h = true
-		
