@@ -9,6 +9,7 @@ height = 237.594
 
 [node name="Area2D" type="Area2D"]
 scale = Vector2(0.143101, 0.145061)
+collision_layer = 2
 script = ExtResource("1_rxthc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

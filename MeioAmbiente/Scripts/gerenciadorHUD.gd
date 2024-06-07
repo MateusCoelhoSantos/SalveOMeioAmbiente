@@ -12,12 +12,12 @@ var seg = 0
 signal time_is_up()
 
 func _ready():
-	lixocontador.text = str("%03d" % Global.lixo) + " / " + str("%03d" % 24)
+	lixocontador.text = str("%03d" % Global.lixo) + " / " + str("%03d" % 25)
 	tempocontador.text = str("%02d" % default_min) + ":" + str("%02d" % default_seg)
 	reset_tempo()
 	
 func _process(delta):
-	lixocontador.text = str("%03d" % Global.lixo) + " / " + str("%03d" % 24)
+	lixocontador.text = str("%03d" % Global.lixo) + " / " + str("%03d" % 25)
 	
 	if min == 0 and seg == 0:
 		emit_signal("time_is_up")
@@ -30,7 +30,7 @@ func _on_tempo_timeout():
 	seg -= 1
 	
 	tempocontador.text = str("%02d" % min) + ":" + str("%02d" % seg)
-	
+	Global.tempcontagem = tempocontador.text
 func reset_tempo():
 	min = default_min
 	seg = default_seg

@@ -109,8 +109,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.998953, 0.994287)
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_7iqrc")
 next_scene = "res://Cenas/fase_1.tscn"
 
@@ -121,7 +121,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.00515, 1.00592)
+scale = Vector2(1.00112, 1.0062)
 color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
@@ -129,11 +129,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.997543
-offset_right = 460.998
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.633842, 0.997152)
+scale = Vector2(0.999891, 0.999624)
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
@@ -141,7 +139,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_qt5ok")
 theme_override_font_sizes/font_size = 32
-text = "Holly era uma garotinha cheia de energia e amor pela natureza.  
+text = "
+Holly era uma garotinha cheia de energia e amor pela natureza.  
 Quando se mudou para a pequena cidade de Verde Vale, 
 ela ficou triste ao ver que as ruas e parques estavam
 cheios de lixo, e os rios, antes cristalinos, agora carregavam 
@@ -162,6 +161,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource("1_tphvh")
+theme_override_font_sizes/font_size = 25
 text = "CONTINUAR"
 
 [node name="transicao" type="CanvasLayer" parent="."]
@@ -169,9 +169,13 @@ script = ExtResource("2_4tpex")
 
 [node name="color_rect" type="ColorRect" parent="transicao"]
 material = SubResource("ShaderMaterial_upvtx")
-offset_top = 1.0
-offset_right = 799.0
-offset_bottom = 600.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("4_r3h7j")
 
 [node name="anim" type="AnimationPlayer" parent="."]

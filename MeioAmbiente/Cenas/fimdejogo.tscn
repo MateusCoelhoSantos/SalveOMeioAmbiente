@@ -83,8 +83,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_iv14w")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -104,10 +104,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -68.0
-offset_top = -39.5
-offset_right = 68.0
-offset_bottom = 39.5
+offset_left = -136.0
+offset_top = -63.5
+offset_right = 136.0
+offset_bottom = 63.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -123,20 +123,24 @@ vertical_alignment = 1
 
 [node name="HSeparator2" type="HSeparator" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 50
 theme_override_styles/separator = SubResource("StyleBoxEmpty_yodld")
 
 [node name="recomecar_btn" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_wkjqm")
+theme_override_font_sizes/font_size = 25
 text = "RECOMEAÇR"
 
 [node name="HSeparator" type="HSeparator" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxEmpty_yodld")
 
 [node name="sair_btn" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_wkjqm")
+theme_override_font_sizes/font_size = 25
 text = "SAIR DO JOGO"
 
 [node name="transicao" type="CanvasLayer" parent="."]
@@ -144,9 +148,13 @@ script = ExtResource("3_sxwan")
 
 [node name="color_rect" type="ColorRect" parent="transicao"]
 material = SubResource("ShaderMaterial_rh38c")
-offset_top = 1.0
-offset_right = 799.0
-offset_bottom = 600.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("5_bh8fr")
 
 [node name="anim" type="AnimationPlayer" parent="."]

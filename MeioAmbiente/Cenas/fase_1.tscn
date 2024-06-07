@@ -507,13 +507,19 @@ position = Vector2(464, 141)
 [node name="Area2D6" parent="collectibles" instance=ExtResource("8_nwuda")]
 position = Vector2(885, 534)
 
+[node name="Area2D7" parent="collectibles" instance=ExtResource("8_nwuda")]
+position = Vector2(1158, 1510)
+
+[node name="Area2D8" parent="collectibles" instance=ExtResource("8_nwuda")]
+position = Vector2(1471, 1214)
+
 [node name="SacoCaido" type="Node2D" parent="collectibles"]
 
 [node name="Area2D" parent="collectibles/SacoCaido" instance=ExtResource("3_p4kp3")]
 position = Vector2(328, 354)
 
 [node name="Area2D7" parent="collectibles/SacoCaido" instance=ExtResource("3_p4kp3")]
-position = Vector2(522, 881)
+position = Vector2(389, 1829)
 
 [node name="Area2D8" parent="collectibles/SacoCaido" instance=ExtResource("3_p4kp3")]
 position = Vector2(1914, 291)
@@ -566,7 +572,7 @@ position = Vector2(1927, 794)
 position = Vector2(1513, 1153)
 
 [node name="Area2D14" parent="collectibles/GarrafaCoca" instance=ExtResource("4_2kw5h")]
-position = Vector2(1355, 509)
+position = Vector2(903, 1809)
 
 [node name="Area2D15" parent="collectibles/GarrafaCoca" instance=ExtResource("4_2kw5h")]
 position = Vector2(1409, 301)
@@ -579,9 +585,18 @@ script = ExtResource("10_n71g6")
 
 [node name="color_rect" type="ColorRect" parent="transicao"]
 material = SubResource("ShaderMaterial_qup37")
-offset_top = 1.0
-offset_right = 799.0
-offset_bottom = 600.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 600.0
+offset_top = -3.0
+offset_right = 600.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.667956, 0.670638)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("12_m68jr")
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -667,40 +682,59 @@ autoplay = "fase1"
 
 [node name="controles" type="CanvasLayer" parent="."]
 
-[node name="direita" type="TouchScreenButton" parent="controles"]
-position = Vector2(152, 467)
+[node name="VBoxContainer" type="VBoxContainer" parent="controles"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="direita" type="TouchScreenButton" parent="controles/VBoxContainer"]
+position = Vector2(158, 594)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("17_6tjri")
 texture_pressed = ExtResource("18_6ij3o")
 action = "right"
 visibility_mode = 1
 
-[node name="esquerda" type="TouchScreenButton" parent="controles"]
-position = Vector2(14, 467)
+[node name="esquerda" type="TouchScreenButton" parent="controles/VBoxContainer"]
+position = Vector2(20, 594)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("19_6mr0o")
 texture_pressed = ExtResource("20_jrmx1")
 action = "left"
 visibility_mode = 1
 
-[node name="cima" type="TouchScreenButton" parent="controles"]
-position = Vector2(84, 407)
-scale = Vector2(2, 2)
-texture_normal = ExtResource("21_tg8yc")
-texture_pressed = ExtResource("22_8uvl5")
-action = "up"
-visibility_mode = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="controles"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.997645, 0.997886)
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
-[node name="baixo" type="TouchScreenButton" parent="controles"]
-position = Vector2(84, 527)
+[node name="baixo" type="TouchScreenButton" parent="controles/HBoxContainer"]
+position = Vector2(90.2125, 656.133)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("23_d0q62")
 texture_pressed = ExtResource("24_0g5jx")
 action = "down"
 visibility_mode = 1
 
-[node name="Menu" type="TouchScreenButton" parent="controles"]
-position = Vector2(370, 4)
+[node name="cima" type="TouchScreenButton" parent="controles/HBoxContainer"]
+position = Vector2(90.2125, 536.133)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("21_tg8yc")
+texture_pressed = ExtResource("22_8uvl5")
+action = "up"
+visibility_mode = 1
+
+[node name="Menu" type="TouchScreenButton" parent="controles/HBoxContainer"]
+position = Vector2(684, -3)
 scale = Vector2(0.170818, 0.174377)
 texture_normal = ExtResource("25_6frdu")
 texture_pressed = ExtResource("26_sxxxa")

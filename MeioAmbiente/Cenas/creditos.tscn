@@ -23,6 +23,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_4lu4s")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -42,10 +44,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -353.0
-offset_top = -109.0
-offset_right = 353.0
-offset_bottom = 109.0
+offset_left = -672.0
+offset_top = -151.5
+offset_right = 672.0
+offset_bottom = 151.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -55,7 +57,7 @@ size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("2_ummtp")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 30
 text = "Jogo Desenvolvido por:
 Mateus Coelho Santos
 Estudante da São Lucas Ji-Paraná Afya
@@ -72,6 +74,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_1hu7k")
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_4apjl")
+theme_override_font_sizes/font_size = 25
 text = "Voltar"
 
 [node name="transicao" type="CanvasLayer" parent="."]
@@ -79,9 +82,13 @@ script = ExtResource("3_bqpw8")
 
 [node name="color_rect" type="ColorRect" parent="transicao"]
 material = SubResource("ShaderMaterial_evhcx")
-offset_top = 1.0
-offset_right = 799.0
-offset_bottom = 600.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("5_obi20")
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/voltar_btn" to="." method="_on_start_btn_pressed"]

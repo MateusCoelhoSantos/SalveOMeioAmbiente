@@ -1,7 +1,9 @@
 extends Control
 
+@onready var label_2 = $ColorRect/VBoxContainer/Label2
+
 func _ready():
-	pass # Replace with function body.
+	label_2.text = str(Global.lixo) + " Coletados de 25 no tempo de " + Global.tempcontagem 
 	
 func _process(delta):
 	pass
