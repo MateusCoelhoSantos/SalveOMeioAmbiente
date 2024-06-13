@@ -12,3 +12,4 @@ func _process(delta):
 func fim_de_jogo():
 	get_tree().change_scene_to_file("res://Cenas/fimdejogo.tscn")
 	Global.lixo = 0
+	

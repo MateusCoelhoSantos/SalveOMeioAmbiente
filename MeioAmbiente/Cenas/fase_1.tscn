@@ -12,8 +12,8 @@
 [ext_resource type="Script" path="res://Scripts/transicao.gd" id="10_n71g6"]
 [ext_resource type="Shader" path="res://Shaders/transicao.gdshader" id="11_ckg1n"]
 [ext_resource type="Script" path="res://Scripts/color_rect.gd" id="12_m68jr"]
-[ext_resource type="Texture2D" uid="uid://dm4mep6ol5p7t" path="res://Lixeiros/lixeiraazul.png" id="13_1ivmb"]
 [ext_resource type="Script" path="res://Scripts/gerenciadorHUD.gd" id="13_xovb6"]
+[ext_resource type="Texture2D" uid="uid://bjge7ymk2qmpr" path="res://Lixeiros/lixo azul aberto.png" id="14_bsxpd"]
 [ext_resource type="FontFile" uid="uid://dbhk66eyst1bt" path="res://assets/Fontes/RevMiniPixel.ttf" id="14_xomkb"]
 [ext_resource type="PackedScene" uid="uid://caq08yqtnamxi" path="res://Cenas/menu_pausa.tscn" id="16_bboef"]
 [ext_resource type="Texture2D" uid="uid://b2y7xv1p5lbqh" path="res://assets/Setas Mobile/ui_buttons_arrow_right_NORMAL.png" id="17_6tjri"]
@@ -637,7 +637,7 @@ theme_override_constants/separation = 4
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("13_1ivmb")
+texture = ExtResource("14_bsxpd")
 
 [node name="lixocontador" type="Label" parent="HUD/Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -671,14 +671,6 @@ text = "00:00"
 
 [node name="tempo" type="Timer" parent="HUD/Control"]
 autostart = true
-
-[node name="menu_pausa" parent="." instance=ExtResource("16_bboef")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_g271r")
-}
-autoplay = "fase1"
 
 [node name="controles" type="CanvasLayer" parent="."]
 
@@ -740,5 +732,13 @@ texture_normal = ExtResource("25_6frdu")
 texture_pressed = ExtResource("26_sxxxa")
 action = "ui_cancel"
 visibility_mode = 1
+
+[node name="menu_pausa" parent="." instance=ExtResource("16_bboef")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g271r")
+}
+autoplay = "fase1"
 
 [connection signal="timeout" from="HUD/Control/tempo" to="HUD/Control" method="_on_tempo_timeout"]

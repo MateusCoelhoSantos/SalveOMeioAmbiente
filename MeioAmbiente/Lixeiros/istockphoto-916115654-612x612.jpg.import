@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm4mep6ol5p7t"
-path="res://.godot/imported/lixeiraAzul.png-168d0deea7631542fe94a2fc30185494.ctex"
+uid="uid://cv2hsrrbyqxxi"
+path="res://.godot/imported/istockphoto-916115654-612x612.jpg-b881298cde730756fcfaa0c8903f3048.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Lixeiros/lixeiraAzul.png"
-dest_files=["res://.godot/imported/lixeiraAzul.png-168d0deea7631542fe94a2fc30185494.ctex"]
+source_file="res://Lixeiros/istockphoto-916115654-612x612.jpg"
+dest_files=["res://.godot/imported/istockphoto-916115654-612x612.jpg-b881298cde730756fcfaa0c8903f3048.ctex"]
 
 [params]
 

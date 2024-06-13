@@ -14,3 +14,4 @@ func _on_continar_btn_pressed():
 	color_rect.visible = true
 	if !next_scene == "":
 		transicao.change_scene(next_scene)
+	Global.lixo = 0

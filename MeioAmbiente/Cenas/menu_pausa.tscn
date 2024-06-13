@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://caq08yqtnamxi"]
 
 [ext_resource type="Script" path="res://Scripts/menu_pausa.gd" id="1_r7j5i"]
-[ext_resource type="Theme" uid="uid://665c8xr3ikdj" path="res://temabotao.tres" id="1_seo5x"]
+[ext_resource type="Theme" uid="uid://hx57tygvdc7v" path="res://temabntpausa.tres" id="2_cjawi"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_dni5h"]
+[sub_resource type="InputEventAction" id="InputEventAction_r7njb"]
 action = &"ui_cancel"
 
-[sub_resource type="Shortcut" id="Shortcut_0nomw"]
-events = [SubResource("InputEventAction_dni5h")]
+[sub_resource type="Shortcut" id="Shortcut_ellge"]
+events = [SubResource("InputEventAction_r7njb")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7dhbl"]
 
@@ -26,40 +26,38 @@ size_flags_vertical = 4
 color = Color(0, 0, 0, 0.219608)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -33.0
-offset_bottom = 33.0
+offset_left = -69.5
+offset_top = -44.5
+offset_right = 69.5
+offset_bottom = 44.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.99782, 1.07365)
+size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="continue_bnt" type="Button" parent="VBoxContainer"]
+[node name="continuar_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("1_seo5x")
-theme_override_font_sizes/font_size = 64
-shortcut = SubResource("Shortcut_0nomw")
-text = "CONTINUE"
-flat = true
+theme = ExtResource("2_cjawi")
+theme_override_font_sizes/font_size = 40
+shortcut = SubResource("Shortcut_ellge")
+text = "CONTINUAR"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 25
 theme_override_styles/separator = SubResource("StyleBoxEmpty_7dhbl")
 
-[node name="sair" type="Button" parent="VBoxContainer"]
+[node name="sair_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("1_seo5x")
-theme_override_font_sizes/font_size = 64
-text = "SAIR
-"
-flat = true
+theme = ExtResource("2_cjawi")
+theme_override_font_sizes/font_size = 40
+text = "SAIR"
 
-[connection signal="pressed" from="VBoxContainer/continue_bnt" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="VBoxContainer/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="VBoxContainer/continuar_btn" to="." method="_on_continuar_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/sair_btn" to="." method="_on_sair_btn_pressed"]

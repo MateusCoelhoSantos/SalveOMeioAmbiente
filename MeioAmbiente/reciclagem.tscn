@@ -1,0 +1,145 @@
+[gd_scene load_steps=9 format=3 uid="uid://d25r2ttskqkks"]
+
+[ext_resource type="Texture2D" uid="uid://cf1xji7lw8wgr" path="res://assets/FundoReciclagem.jpeg" id="1_1tro6"]
+[ext_resource type="Texture2D" uid="uid://csnxfilofa6cs" path="res://Lixeiros/lixeiraAmarela.png" id="2_p8knk"]
+[ext_resource type="Texture2D" uid="uid://dm4mep6ol5p7t" path="res://Lixeiros/lixeiraAzul.png" id="3_uf1wg"]
+[ext_resource type="Texture2D" uid="uid://b2umhs03r0vk4" path="res://Lixeiros/lixeiraRoxo.png" id="5_awvty"]
+[ext_resource type="Texture2D" uid="uid://bporno34xg2jc" path="res://Lixeiros/lixeiraVermelha.png" id="5_jdvpn"]
+[ext_resource type="Texture2D" uid="uid://cxf53pwj7lys0" path="res://Lixeiros/lixeiraVerde.png" id="6_ve0i3"]
+[ext_resource type="PackedScene" uid="uid://qrm2ruc02o4b" path="res://Cenas/player_reciclagem.tscn" id="7_1l8qe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ova2k"]
+size = Vector2(26.3627, 52.9876)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.93303)
+texture = ExtResource("1_1tro6")
+
+[node name="colisore" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="colisore"]
+
+[node name="AreaExterna" type="CollisionPolygon2D" parent="colisore"]
+visible = false
+position = Vector2(172, 54)
+scale = Vector2(0.722072, 0.489756)
+build_mode = 1
+polygon = PackedVector2Array(-211.89, -65.3387, -210.505, 1768.23, 1650.81, 1780.48, 1628.65, -59.2132)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="colisore"]
+build_mode = 1
+polygon = PackedVector2Array(1, 742, 284, 743, 257, 783, 175, 883, 260, 763, 4, 769)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="colisore"]
+position = Vector2(0, 118)
+build_mode = 1
+polygon = PackedVector2Array(1, 742, 192, 744, 183, 762, 4, 769)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="colisore"]
+position = Vector2(1177, 114)
+build_mode = 1
+polygon = PackedVector2Array(17, 742, 183, 746, 183, 762, 31, 763)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="colisore"]
+position = Vector2(0, -87)
+build_mode = 1
+polygon = PackedVector2Array(1, 742, 381, 749, 360, 771, 4, 769)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="colisore"]
+position = Vector2(1042, -94)
+build_mode = 1
+polygon = PackedVector2Array(-111, 674, 314, 746, 315, 771, -5, 781)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="colisore"]
+position = Vector2(0, -180)
+build_mode = 1
+polygon = PackedVector2Array(1, 742, 284, 743, 370, 753, 450, 705, 449, 794, 376, 848, 424, 794, 367, 776, 4, 769)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="colisore"]
+position = Vector2(447, -178)
+build_mode = 1
+polygon = PackedVector2Array(1, 742, 904, 744, 906, 764, 4, 769)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="colisore"]
+position = Vector2(1048, 22)
+build_mode = 1
+polygon = PackedVector2Array(70, 730, 322, 722, 318, 747, 89, 753, 159, 856, 72, 753)
+
+[node name="PlayerReciclagem" parent="." instance=ExtResource("7_1l8qe")]
+position = Vector2(711, 556)
+scale = Vector2(4, 4)
+
+[node name="LixeiraAzul" type="Sprite2D" parent="."]
+position = Vector2(296, 846)
+scale = Vector2(2.807, 1.774)
+texture = ExtResource("3_uf1wg")
+
+[node name="Area2D" type="Area2D" parent="LixeiraAzul"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraAzul/Area2D"]
+position = Vector2(0.712494, 1.12738)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ova2k")
+
+[node name="LixeiraAmarela" type="Sprite2D" parent="."]
+position = Vector2(1137.75, 846.75)
+scale = Vector2(2.80667, 1.74)
+texture = ExtResource("2_p8knk")
+
+[node name="Area2D" type="Area2D" parent="LixeiraAmarela"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraAmarela/Area2D"]
+position = Vector2(0.0890653, -0.43105)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ova2k")
+
+[node name="LixeiraRoxo" type="Sprite2D" parent="."]
+position = Vector2(722.75, 846.75)
+scale = Vector2(2.807, 1.774)
+texture = ExtResource("5_awvty")
+
+[node name="Area2D" type="Area2D" parent="LixeiraRoxo"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraRoxo/Area2D"]
+position = Vector2(0.712494, 1.12738)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ova2k")
+
+[node name="LixeiraVerde" type="Sprite2D" parent="."]
+position = Vector2(929.75, 846.75)
+scale = Vector2(2.807, 1.774)
+texture = ExtResource("6_ve0i3")
+
+[node name="Area2D" type="Area2D" parent="LixeiraVerde"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraVerde/Area2D"]
+position = Vector2(0.712494, 1.12738)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ova2k")
+
+[node name="LixeiraVermelha" type="Sprite2D" parent="."]
+position = Vector2(516.75, 846.75)
+scale = Vector2(2.807, 1.774)
+texture = ExtResource("5_jdvpn")
+
+[node name="Area2D" type="Area2D" parent="LixeiraVermelha"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraVermelha/Area2D"]
+position = Vector2(0.712494, 1.12738)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ova2k")
