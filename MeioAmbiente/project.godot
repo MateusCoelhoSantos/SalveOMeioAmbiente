@@ -52,6 +52,15 @@ left={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="player"
+2d_render/layer_2="lixos"
+2d_render/layer_3="lixeiras"
+2d_physics/layer_1="player"
+2d_physics/layer_2="lixos"
+2d_physics/layer_3="lixeiras"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

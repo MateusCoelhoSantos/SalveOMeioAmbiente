@@ -1,15 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://d25r2ttskqkks"]
+[gd_scene load_steps=21 format=3 uid="uid://d25r2ttskqkks"]
 
 [ext_resource type="Texture2D" uid="uid://cf1xji7lw8wgr" path="res://assets/FundoReciclagem.jpeg" id="1_1tro6"]
+[ext_resource type="Script" path="res://Scripts/reciclagem.gd" id="1_275m6"]
 [ext_resource type="Texture2D" uid="uid://csnxfilofa6cs" path="res://Lixeiros/lixeiraAmarela.png" id="2_p8knk"]
+[ext_resource type="PackedScene" uid="uid://dlfh1vlwd20iu" path="res://Cenas/area_2d.tscn" id="3_ct16w"]
 [ext_resource type="Texture2D" uid="uid://dm4mep6ol5p7t" path="res://Lixeiros/lixeiraAzul.png" id="3_uf1wg"]
+[ext_resource type="PackedScene" uid="uid://ctd8diy1dqkru" path="res://Cenas/area_2d6.tscn" id="4_opby6"]
 [ext_resource type="Texture2D" uid="uid://b2umhs03r0vk4" path="res://Lixeiros/lixeiraRoxo.png" id="5_awvty"]
 [ext_resource type="Texture2D" uid="uid://bporno34xg2jc" path="res://Lixeiros/lixeiraVermelha.png" id="5_jdvpn"]
+[ext_resource type="PackedScene" uid="uid://clfb30rq7ol7o" path="res://Cenas/area_2d5.tscn" id="5_je2g7"]
+[ext_resource type="PackedScene" uid="uid://barsvry3wt5pb" path="res://Cenas/area_2d4.tscn" id="6_moj32"]
 [ext_resource type="Texture2D" uid="uid://cxf53pwj7lys0" path="res://Lixeiros/lixeiraVerde.png" id="6_ve0i3"]
 [ext_resource type="PackedScene" uid="uid://qrm2ruc02o4b" path="res://Cenas/player_reciclagem.tscn" id="7_1l8qe"]
+[ext_resource type="PackedScene" uid="uid://b454dvdoaqc6o" path="res://Cenas/area_2d3.tscn" id="7_ldcg1"]
+[ext_resource type="PackedScene" uid="uid://duji884llcv4r" path="res://Cenas/area_2d2.tscn" id="8_4sqqf"]
+[ext_resource type="Script" path="res://Scripts/transicao.gd" id="15_qu2iy"]
+[ext_resource type="Shader" path="res://Shaders/transicao.gdshader" id="16_w72vn"]
+[ext_resource type="Script" path="res://Scripts/color_rect.gd" id="17_uyweq"]
+[ext_resource type="Theme" uid="uid://665c8xr3ikdj" path="res://temabotao.tres" id="18_i7opa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ova2k"]
 size = Vector2(26.3627, 52.9876)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvyjm"]
+shader = ExtResource("16_w72vn")
+shader_parameter/lines = 10.0
+shader_parameter/threshold = 0.0
+shader_parameter/line_color_a = Color(6.73831e-07, 0.974087, 0.46004, 1)
+shader_parameter/line_color_b = Color(0.719593, 0.895324, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -18,128 +36,244 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_275m6")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 256.0
+offset_top = -187.0
+offset_bottom = 69.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.93303)
 texture = ExtResource("1_1tro6")
 
-[node name="colisore" type="StaticBody2D" parent="."]
+[node name="colisore" type="StaticBody2D" parent="TextureRect"]
+scale = Vector2(1, 1.07178)
+collision_layer = 32768
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="colisore"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="TextureRect/colisore"]
+light_mask = 8
+visibility_layer = 7
 
-[node name="AreaExterna" type="CollisionPolygon2D" parent="colisore"]
+[node name="AreaExterna" type="CollisionPolygon2D" parent="TextureRect/colisore"]
 visible = false
+light_mask = 8
+visibility_layer = 7
 position = Vector2(172, 54)
 scale = Vector2(0.722072, 0.489756)
 build_mode = 1
 polygon = PackedVector2Array(-211.89, -65.3387, -210.505, 1768.23, 1650.81, 1780.48, 1628.65, -59.2132)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="colisore"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextureRect/colisore"]
+light_mask = 8
+visibility_layer = 7
 build_mode = 1
 polygon = PackedVector2Array(1, 742, 284, 743, 257, 783, 175, 883, 260, 763, 4, 769)
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="colisore"]
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="TextureRect/colisore"]
+light_mask = 8
+visibility_layer = 7
 position = Vector2(0, 118)
 build_mode = 1
 polygon = PackedVector2Array(1, 742, 192, 744, 183, 762, 4, 769)
 
-[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="colisore"]
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="TextureRect/colisore"]
+light_mask = 8
+visibility_layer = 7
 position = Vector2(1177, 114)
 build_mode = 1
 polygon = PackedVector2Array(17, 742, 183, 746, 183, 762, 31, 763)
 
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="colisore"]
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="TextureRect/colisore"]
+light_mask = 8
+visibility_layer = 7
 position = Vector2(0, -87)
 build_mode = 1
 polygon = PackedVector2Array(1, 742, 381, 749, 360, 771, 4, 769)
 
-[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="colisore"]
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="TextureRect/colisore"]
+light_mask = 8
+visibility_layer = 7
 position = Vector2(1042, -94)
 build_mode = 1
 polygon = PackedVector2Array(-111, 674, 314, 746, 315, 771, -5, 781)
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="colisore"]
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="TextureRect/colisore"]
+light_mask = 8
+visibility_layer = 7
 position = Vector2(0, -180)
 build_mode = 1
 polygon = PackedVector2Array(1, 742, 284, 743, 370, 753, 450, 705, 449, 794, 376, 848, 424, 794, 367, 776, 4, 769)
 
-[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="colisore"]
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="TextureRect/colisore"]
+light_mask = 8
+visibility_layer = 7
 position = Vector2(447, -178)
 build_mode = 1
 polygon = PackedVector2Array(1, 742, 904, 744, 906, 764, 4, 769)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="colisore"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="TextureRect/colisore"]
+light_mask = 8
+visibility_layer = 7
 position = Vector2(1048, 22)
 build_mode = 1
 polygon = PackedVector2Array(70, 730, 322, 722, 318, 747, 89, 753, 159, 856, 72, 753)
 
-[node name="PlayerReciclagem" parent="." instance=ExtResource("7_1l8qe")]
-position = Vector2(711, 556)
-scale = Vector2(4, 4)
+[node name="PlayerReciclagem" parent="TextureRect" instance=ExtResource("7_1l8qe")]
+visibility_layer = 15
+position = Vector2(711, 595.908)
+scale = Vector2(5, 5.35888)
 
-[node name="LixeiraAzul" type="Sprite2D" parent="."]
-position = Vector2(296, 846)
-scale = Vector2(2.807, 1.774)
+[node name="Metal" parent="TextureRect" instance=ExtResource("3_ct16w")]
+light_mask = 2
+visibility_layer = 6
+position = Vector2(1258, 742.741)
+scale = Vector2(0.5, 0.542319)
+
+[node name="Plastico" parent="TextureRect" instance=ExtResource("4_opby6")]
+light_mask = 2
+visibility_layer = 4
+position = Vector2(114, 742.741)
+scale = Vector2(0.5, 0.542319)
+
+[node name="Plastico2" parent="TextureRect" instance=ExtResource("5_je2g7")]
+light_mask = 2
+visibility_layer = 4
+position = Vector2(249, 742.741)
+scale = Vector2(0.5, 0.542319)
+
+[node name="Metal2" parent="TextureRect" instance=ExtResource("6_moj32")]
+position = Vector2(1111, 762.033)
+scale = Vector2(0.5, 0.542319)
+
+[node name="Plastico3" parent="TextureRect" instance=ExtResource("7_ldcg1")]
+light_mask = 2
+visibility_layer = 4
+position = Vector2(985, 754.531)
+scale = Vector2(0.5, 0.542319)
+
+[node name="Plastico4" parent="TextureRect" instance=ExtResource("8_4sqqf")]
+light_mask = 2
+visibility_layer = 4
+position = Vector2(408, 742.741)
+scale = Vector2(0.5, 0.542319)
+
+[node name="LixeiraAzul" type="Sprite2D" parent="TextureRect"]
+light_mask = 4
+visibility_layer = 2
+position = Vector2(292.263, 905.517)
+scale = Vector2(2.807, 1.90133)
 texture = ExtResource("3_uf1wg")
 
-[node name="Area2D" type="Area2D" parent="LixeiraAzul"]
+[node name="Area2D" type="Area2D" parent="TextureRect/LixeiraAzul"]
+light_mask = 4
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraAzul/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/LixeiraAzul/Area2D"]
 position = Vector2(0.712494, 1.12738)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ova2k")
 
-[node name="LixeiraAmarela" type="Sprite2D" parent="."]
-position = Vector2(1137.75, 846.75)
-scale = Vector2(2.80667, 1.74)
+[node name="LixeiraAmarela" type="Sprite2D" parent="TextureRect"]
+light_mask = 4
+visibility_layer = 2
+position = Vector2(1134.01, 906.321)
+scale = Vector2(2.80667, 1.86489)
 texture = ExtResource("2_p8knk")
 
-[node name="Area2D" type="Area2D" parent="LixeiraAmarela"]
+[node name="Area2D" type="Area2D" parent="TextureRect/LixeiraAmarela"]
+light_mask = 4
+visibility_layer = 6
+collision_layer = 4
+collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraAmarela/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/LixeiraAmarela/Area2D"]
 position = Vector2(0.0890653, -0.43105)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ova2k")
 
-[node name="LixeiraRoxo" type="Sprite2D" parent="."]
-position = Vector2(722.75, 846.75)
-scale = Vector2(2.807, 1.774)
+[node name="LixeiraRoxo" type="Sprite2D" parent="TextureRect"]
+light_mask = 4
+visibility_layer = 2
+position = Vector2(719.013, 906.321)
+scale = Vector2(2.807, 1.90133)
 texture = ExtResource("5_awvty")
 
-[node name="Area2D" type="Area2D" parent="LixeiraRoxo"]
+[node name="Area2D" type="Area2D" parent="TextureRect/LixeiraRoxo"]
+light_mask = 4
+visibility_layer = 6
+collision_layer = 8
+collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraRoxo/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/LixeiraRoxo/Area2D"]
 position = Vector2(0.712494, 1.12738)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ova2k")
 
-[node name="LixeiraVerde" type="Sprite2D" parent="."]
-position = Vector2(929.75, 846.75)
-scale = Vector2(2.807, 1.774)
+[node name="LixeiraVerde" type="Sprite2D" parent="TextureRect"]
+light_mask = 4
+visibility_layer = 2
+position = Vector2(926.013, 906.321)
+scale = Vector2(2.807, 1.90133)
 texture = ExtResource("6_ve0i3")
 
-[node name="Area2D" type="Area2D" parent="LixeiraVerde"]
+[node name="Area2D" type="Area2D" parent="TextureRect/LixeiraVerde"]
+light_mask = 4
+visibility_layer = 6
+collision_layer = 16
+collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraVerde/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/LixeiraVerde/Area2D"]
 position = Vector2(0.712494, 1.12738)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ova2k")
 
-[node name="LixeiraVermelha" type="Sprite2D" parent="."]
-position = Vector2(516.75, 846.75)
-scale = Vector2(2.807, 1.774)
+[node name="LixeiraVermelha" type="Sprite2D" parent="TextureRect"]
+light_mask = 4
+visibility_layer = 2
+position = Vector2(513.013, 906.321)
+scale = Vector2(2.807, 1.90133)
 texture = ExtResource("5_jdvpn")
 
-[node name="Area2D" type="Area2D" parent="LixeiraVermelha"]
+[node name="Area2D" type="Area2D" parent="TextureRect/LixeiraVermelha"]
+light_mask = 4
+visibility_layer = 6
+collision_layer = 32
+collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraVermelha/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/LixeiraVermelha/Area2D"]
 position = Vector2(0.712494, 1.12738)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ova2k")
+
+[node name="transicao" type="CanvasLayer" parent="."]
+script = ExtResource("15_qu2iy")
+
+[node name="color_rect" type="ColorRect" parent="transicao"]
+material = SubResource("ShaderMaterial_jvyjm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("17_uyweq")
+
+[node name="sair_btn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 631.0
+offset_top = 200.0
+offset_right = 770.0
+offset_bottom = 228.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("18_i7opa")
+theme_override_font_sizes/font_size = 25
+text = "TELA INICIAL"
+
+[connection signal="pressed" from="sair_btn" to="." method="_on_sair_btn_pressed"]

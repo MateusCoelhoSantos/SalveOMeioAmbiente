@@ -124,7 +124,9 @@ theme_override_fonts/font = ExtResource("1_jtb8b")
 theme_override_font_sizes/font_size = 32
 text = "Parabéns você conseguiu coletar todos os
 lixos da cidade antes do tempo acabar!
-VITORIA!"
+O proximo passo para salvar a cidade agora é fazer a 
+separação correta dos lixos que coletamos
+Vamos Lá!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -133,26 +135,13 @@ layout_mode = 2
 theme_override_constants/separation = 50
 theme_override_styles/separator = SubResource("StyleBoxEmpty_nfjdj")
 
-[node name="recomecar_btn" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="continuar_btn" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_o33vd")
 theme_override_font_sizes/font_size = 25
-text = "RECOMEAÇR"
-
-[node name="HSeparator" type="HSeparator" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 40
-theme_override_styles/separator = SubResource("StyleBoxEmpty_nfjdj")
-
-[node name="sair_btn" type="Button" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("2_o33vd")
-theme_override_font_sizes/font_size = 25
-text = "SAIR DO JOGO"
+text = "CONTINUAR"
 
 [node name="transicao" type="CanvasLayer" parent="."]
 script = ExtResource("3_o8gq0")
@@ -174,5 +163,4 @@ libraries = {
 }
 autoplay = "fim de jogo"
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/recomecar_btn" to="." method="_on_recomecar_btn_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/sair_btn" to="." method="_on_sair_btn_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/continuar_btn" to="." method="_on_continuar_btn_pressed"]

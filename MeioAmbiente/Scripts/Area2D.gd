@@ -14,3 +14,7 @@ func _on_body_entered(body: Node2D) -> void:
 	Global.lixo += lixos
 	print(Global.lixo)
 	queue_free()
+	
+func _on_area_entered(area):
+	print("Reciclado")
+	queue_free()

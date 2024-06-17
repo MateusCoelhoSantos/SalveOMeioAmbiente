@@ -126,6 +126,7 @@ animations = [{
 }]
 
 [node name="PlayerReciclagem" type="CharacterBody2D"]
+collision_mask = 32783
 script = ExtResource("1_vp64a")
 
 [node name="CollisionPlay" type="CollisionShape2D" parent="."]
@@ -139,7 +140,7 @@ ignore_rotation = false
 limit_left = 0
 limit_top = 0
 limit_right = 1366
-limit_bottom = 950
+limit_bottom = 768
 editor_draw_limits = true
 
 [node name="AnimaHolly" type="AnimatedSprite2D" parent="."]
